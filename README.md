@@ -1,4 +1,4 @@
-Patches and aditional files required to break the monolith are in the transformations directory, which preserves the directory structure of isle-fedora.
+Patches and additional files required to break the monolith are in the transformations directory, which preserves the directory structure of isle-fedora.
 
 The config directory contains the contents of Isle's config/fedora directory:
 
