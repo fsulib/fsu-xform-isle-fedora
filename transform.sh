@@ -3,9 +3,8 @@
 # The object here is to clone the isle-fedora repo, copy the contents of 
 # transformations over it and patch the files that require patching.
 
-CLONE_BASE="/tmp/isle-fedora"
+[[ $CLONE_BASE ]] || CLONE_BASE=./isle-fedora
 OWD="${PWD}"
-
 git clone https://github.com/Islandora-Collaboration-Group/isle-fedora.git "${CLONE_BASE}"
 cp -r transformations/* "${CLONE_BASE}"
 cd "${CLONE_BASE}"
