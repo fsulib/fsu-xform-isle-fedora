@@ -1,0 +1,10 @@
+--- isle-fedora/rootfs/etc/confd/conf.d/fedora-filter-drupal.toml	2020-10-22 12:35:20.000000000 -0400
++++ temp-fsu-fedora/rootfs/etc/confd/conf.d/fedora-filter-drupal.toml	2020-10-15 08:18:25.000000000 -0400
+@@ -7,5 +7,6 @@
+ keys = [
+   "/drupal/db",
+   "/drupal/db/user",
+-  "/drupal/db/pass"
++  "/drupal/db/pass",
++  "/db/endpoint"
+ ]

@@ -1,0 +1,20 @@
+--- isle-fedora/rootfs/etc/cont-init.d/01-fedora-config	2020-10-22 12:35:20.000000000 -0400
++++ temp-fsu-fedora/rootfs/etc/cont-init.d/01-fedora-config	2020-10-15 08:18:25.000000000 -0400
+@@ -1,12 +1,12 @@
+ #!/usr/bin/with-contenv sh
+ 
+ # Wait for SQL.
+-while ! mysqladmin ping -hmysql --silent; do
++while ! mysqladmin ping -h${DB_ENDPOINT} --silent; do
+     sleep 1
+ done
+ 
+ /usr/local/bin/confd -onetime -backend env
+ 
+-if [ $FEDORA_RESOURCE_INDEX = "blazegraph" ]; then
+-   mv /usr/local/fedora/server/config/spring/remote-blazegraph.bk /usr/local/fedora/server/config/spring/remote-blazegraph.xml
+-fi
+\ No newline at end of file
++if [ $FEDORA_RESOURCE_INDEX = "mulgara" ]; then
++   mv /usr/local/fedora/server/config/spring/remote-blazegraph.xml /usr/local/fedora/server/config/spring/remote-blazegraph.bk
++fi

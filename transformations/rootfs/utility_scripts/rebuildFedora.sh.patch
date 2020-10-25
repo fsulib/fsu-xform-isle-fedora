@@ -1,0 +1,11 @@
+--- isle-fedora/rootfs/utility_scripts/rebuildFedora.sh	2020-10-22 12:35:20.000000000 -0400
++++ temp-fsu-fedora/rootfs/utility_scripts/rebuildFedora.sh	2020-10-15 08:18:25.000000000 -0400
+@@ -11,7 +11,7 @@
+ 
+ cd $FEDORA_HOME/server/bin || exit;
+ echo 'Truncating old SQL tables.'
+-mysql -hmysql -u$FEDORA_DB_USER -p$FEDORA_DB_PASS $FEDORA_DB --execute 'TRUNCATE TABLE dcDates; TRUNCATE TABLE doFields; TRUNCATE TABLE doRegistry; TRUNCATE TABLE pidGen;'
++mysql -h$DB_ENDPOINT -u$FEDORA_DB_USER -p$FEDORA_DB_PASS $FEDORA_DB --execute 'TRUNCATE TABLE dcDates; TRUNCATE TABLE doFields; TRUNCATE TABLE doRegistry; TRUNCATE TABLE pidGen;'
+ 
+ sleep 10; # Let the user read.
+ 

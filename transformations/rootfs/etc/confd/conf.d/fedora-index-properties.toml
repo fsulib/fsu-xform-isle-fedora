@@ -1,0 +1,9 @@
+[template]
+src = "fedora/index.properties.tpl"
+dest = "/usr/local/tomcat/webapps/fedoragsearch/WEB-INF/classes/fgsconfigFinal/index/FgsIndex/index.properties"
+uid = 1000
+gid = 1000
+mode = "0740"
+keys = [
+  "/solr/endpoint"
+]

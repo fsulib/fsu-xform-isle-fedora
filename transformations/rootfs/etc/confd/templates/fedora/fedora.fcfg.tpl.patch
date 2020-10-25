@@ -1,0 +1,11 @@
+--- isle-fedora/rootfs/etc/confd/templates/fedora/fedora.fcfg.tpl	2020-10-22 12:35:20.000000000 -0400
++++ temp-fsu-fedora/rootfs/etc/confd/templates/fedora/fedora.fcfg.tpl	2020-10-15 08:18:25.000000000 -0400
+@@ -590,7 +590,7 @@
+       <comment>When true, objects are validated before returned to the 
+ 			pool.</comment>
+     </param>
+-    <param name="jdbcURL" value="jdbc:mysql://mysql:3306/{{getv "/fedora/db"}}?useUnicode=true&amp;amp;characterEncoding=UTF-8&amp;amp;autoReconnect=true">
++    <param name="jdbcURL" value="jdbc:mysql://{{getv "/db/endpoint"}}:3306/{{getv "/fedora/db"}}?useUnicode=true&amp;amp;characterEncoding=UTF-8&amp;amp;autoReconnect=true">
+       <comment>The JDBC connection URL.</comment>
+     </param>
+     <param name="ddlConverter" value="org.fcrepo.server.utilities.MySQLDDLConverter"/>

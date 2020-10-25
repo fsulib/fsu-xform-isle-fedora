@@ -1,0 +1,9 @@
+[template]
+src = "fedora/remote-blazegraph.xml.tpl"
+dest = "/usr/local/fedora/server/config/spring/remote-blazegraph.xml"
+uid = 1000
+gid = 1000
+mode = "0644"
+keys = [
+  "/blazegraph/endpoint"
+]
