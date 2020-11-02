@@ -19,7 +19,7 @@ cd ../../../cont-init.d
 patch < 01-fedora-config.patch
 cd ../../utility_scripts
 patch < rebuildFedora.sh.patch
-cd "${CLONE_BASE}"
+cd "${OWD}/${CLONE_BASE}"
 find . -type f -iname \*.patch -delete
 cd "${OWD}"
 exit 0
