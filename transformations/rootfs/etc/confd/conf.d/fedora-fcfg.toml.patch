@@ -1,0 +1,12 @@
+--- isle-fedora/rootfs/etc/confd//conf.d/fedora-fcfg.toml	2020-10-22 12:35:20.000000000 -0400
++++ temp-fsu-fedora/rootfs/etc/confd/conf.d/fedora-fcfg.toml	2020-10-15 08:18:25.000000000 -0400
+@@ -8,5 +8,6 @@
+   "/fedora/db",
+   "/fedora/db/user",
+   "/fedora/db/pass",
+-  "/fedora/resource/index"
+-]
+\ No newline at end of file
++  "/fedora/resource/index",
++  "/db/endpoint"
++]

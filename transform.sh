@@ -12,6 +12,7 @@ patch < Dockerfile.patch
 cd rootfs/etc/confd/conf.d
 patch < fedora-filter-drupal.toml.patch
 patch < sql.toml.patch
+patch < fedora-fcfg.toml.patch
 cd ../templates/fedora
 patch < fedora.fcfg.tpl.patch
 patch < filter-drupal.xml.tpl.patch
