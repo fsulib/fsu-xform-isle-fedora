@@ -8,15 +8,24 @@ phases:
   build:
     commands:
       - echo "Build started on `date`."
+      - echo "Setting DB_ENDPOINT"
+      - echo "head_ref is $CODEBUILD_WEBHOOK_HEAD_REF"
+      - echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'local' && export DB_ENDPOINT=$DB_ENDPOINT_LOCAL
+      - echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'test' && export DB_ENDPOINT=$DB_ENDPOINT_TEST
+      - echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'prod' && export DB_ENDPOINT=$DB_ENDPOINT_PROD
+      - echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'local' && export IMAGE_TAG=local
+      - echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'test' && export IMAGE_TAG=test
+      - echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'prod' && export IMAGE_TAG=prod
+      - [[ $CODEBUILD_WEBHOOK_HEAD_REF ]] || export DB_ENDPOINT=$DB_ENDPOINT_TEST
+      - [[ $CODEBUILD_WEBHOOK_HEAD_REF ]] || export IMAGE_TAG=test
+      - echo "DB_ENDPOINT is $DB_ENDPOINT"
+      - echo "IMAGE_TAG is $IMAGE_TAG"
       - echo "Cloning and transforming isle-fedora."
       - /bin/bash transform.sh
       - echo "Building image."
-      - cd isle-fedora
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
-      - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
+      - echo "Just kidding. Only a test."
   post_build:
     commands:
       - echo "Finished build on `date`."
       - echo "Pushing to ECR."
-      - docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
 
