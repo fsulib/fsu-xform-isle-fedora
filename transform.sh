@@ -3,6 +3,12 @@
 # The object here is to clone the isle-fedora repo, copy the contents of 
 # transformations over it and patch the files that require patching.
 
+echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'local' && export DB_ENDPOINT=$DB_ENDPOINT_LOCAL
+echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'test' && export DB_ENDPOINT=$DB_ENDPOINT_TEST
+echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'prod' && export DB_ENDPOINT=$DB_ENDPOINT_PROD
+
+echo "DB_ENDPOINT is $DB_ENDPOINT"
+
 [[ $CLONE_BASE ]] || CLONE_BASE=./isle-fedora
 OWD="${PWD}"
 git clone https://github.com/Islandora-Collaboration-Group/isle-fedora.git "${CLONE_BASE}"

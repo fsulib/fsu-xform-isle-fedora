@@ -10,10 +10,6 @@ phases:
       - echo "Build started on `date`."
       - echo "Setting DB_ENDPOINT"
       - echo "head_ref is $CODEBUILD_WEBHOOK_HEAD_REF"
-      - . ./set_db_endpoint.sh
-      - echo "DB_ENDPOINT is $DB_ENDPOINT"
-      - echo "IMAGE_TAG is $IMAGE_TAG"
-      - echo $YOUR_MOM
       - echo "Cloning and transforming isle-fedora."
       - /bin/bash transform.sh
       - echo "Building image."
@@ -21,5 +17,6 @@ phases:
   post_build:
     commands:
       - echo "Finished build on `date`."
+      - echo $(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -d / -f 3)
       - echo "Pushing to ECR."
 
