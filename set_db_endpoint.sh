@@ -8,3 +8,5 @@ echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'test' && export IMAGE_TAG=test
 echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'prod' && export IMAGE_TAG=prod
 test -z $CODEBUILD_WEBHOOK_HEAD_REF && export DB_ENDPOINT=$DB_ENDPOINT_TEST
 test -z $CODEBUILD_WEBHOOK_HEAD_REF && export IMAGE_TAG=test
+
+exit 0
