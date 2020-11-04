@@ -16,8 +16,8 @@ phases:
       - echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'local' && export IMAGE_TAG=local
       - echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'test' && export IMAGE_TAG=test
       - echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'prod' && export IMAGE_TAG=prod
-      - [[ $CODEBUILD_WEBHOOK_HEAD_REF ]] || export DB_ENDPOINT=$DB_ENDPOINT_TEST
-      - [[ $CODEBUILD_WEBHOOK_HEAD_REF ]] || export IMAGE_TAG=test
+      - test -z $CODEBUILD_WEBHOOK_HEAD_REF && export DB_ENDPOINT=$DB_ENDPOINT_TEST
+      - test -z $CODEBUILD_WEBHOOK_HEAD_REF && export IMAGE_TAG=test
       - echo "DB_ENDPOINT is $DB_ENDPOINT"
       - echo "IMAGE_TAG is $IMAGE_TAG"
       - echo "Cloning and transforming isle-fedora."
