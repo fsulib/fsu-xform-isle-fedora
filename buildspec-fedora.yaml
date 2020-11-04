@@ -10,8 +10,7 @@ phases:
       - echo "Build started on `date`."
       - echo "Setting DB_ENDPOINT"
       - echo "head_ref is $CODEBUILD_WEBHOOK_HEAD_REF"
-      - ls
-      - . set_db_endpoint.sh
+      - . ./set_db_endpoint.sh
       - echo "DB_ENDPOINT is $DB_ENDPOINT"
       - echo "IMAGE_TAG is $IMAGE_TAG"
       - echo "Cloning and transforming isle-fedora."
