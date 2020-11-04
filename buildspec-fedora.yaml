@@ -13,6 +13,7 @@ phases:
       - . ./set_db_endpoint.sh
       - echo "DB_ENDPOINT is $DB_ENDPOINT"
       - echo "IMAGE_TAG is $IMAGE_TAG"
+      - echo $YOUR_MOM
       - echo "Cloning and transforming isle-fedora."
       - /bin/bash transform.sh
       - echo "Building image."
