@@ -7,16 +7,10 @@ phases:
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
   build:
     commands:
-      - echo "Build started on `date`."
-      - echo "Setting DB_ENDPOINT"
       - echo "head_ref is $CODEBUILD_WEBHOOK_HEAD_REF"
-      - echo "Cloning and transforming isle-fedora."
       - /bin/bash transform.sh
-      - echo "Building image."
-      - echo "Just kidding. Only a test."
+      - /bin/bash build_tag_push.sh
   post_build:
     commands:
       - echo "Finished build on `date`."
-      - echo $(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -d / -f 3)
-      - echo "Pushing to ECR."
 

@@ -7,9 +7,9 @@ echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'local' && export DB_ENDPOINT=$DB_END
 echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'test' && export DB_ENDPOINT=$DB_ENDPOINT_TEST
 echo $CODEBUILD_WEBHOOK_HEAD_REF | grep -q 'prod' && export DB_ENDPOINT=$DB_ENDPOINT_PROD
 
-echo "DB_ENDPOINT is $DB_ENDPOINT"
-
+[[ $CODEBUILD_WEBHOOK_HEAD_REF ]] || DB_ENDPOINT=$DB_ENDPOINT_TEST
 [[ $CLONE_BASE ]] || CLONE_BASE=./isle-fedora
+
 OWD="${PWD}"
 git clone https://github.com/Islandora-Collaboration-Group/isle-fedora.git "${CLONE_BASE}"
 cp -r transformations/* "${CLONE_BASE}"
