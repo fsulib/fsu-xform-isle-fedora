@@ -10,6 +10,7 @@ phases:
       - echo "head_ref is $CODEBUILD_WEBHOOK_HEAD_REF"
       - /bin/bash transform.sh
       - /bin/bash build_tag_push.sh
+      - echo "Party Time"
   post_build:
     commands:
       - echo "Finished build on `date`."
