@@ -1,5 +1,11 @@
---- isle-fedora/Dockerfile	2020-10-22 12:35:20.000000000 -0400
-+++ temp-fsu-fedora/Dockerfile	2020-10-15 08:18:25.000000000 -0400
+--- isle-fedora/Dockerfile	2020-11-05 11:30:55.000000000 -0500
++++ isle-fedora-alt/Dockerfile	2020-11-19 12:34:46.000000000 -0500
+@@ -1,4 +1,4 @@
+-FROM islandoracollabgroup/isle-tomcat:1.5.2
++FROM 840783682283.dkr.ecr.us-east-1.amazonaws.com/islandoracollabgroup/isle-tomcat:1.5.2
+ 
+ ## Dependencies
+ RUN GEN_DEP_PACKS="mysql-client \
 @@ -25,15 +25,20 @@
      ANT_HOME=/opt/ant \
      MAVEN_MAJOR=${MAVEN_MAJOR:-3} \
