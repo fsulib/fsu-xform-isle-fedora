@@ -1,0 +1,12 @@
+[template]
+src = "fedora/deny-apim-if-not-localhost.xml.tpl"
+dest = "/usr/local/fedora/data/fedora-xacml-policies/repository-policies/default/deny-apim-if-not-localhost.xml"
+uid = 1000
+git = 1000
+mode = "0644"
+keys = [
+  "/db/endpoint",
+  "/blazegraph/endpoint",
+  "/apache/endpoint",
+  "/image/services/endpoint"
+]
