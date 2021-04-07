@@ -4,20 +4,9 @@
 
 image_target=$(echo $CODEBUILD_WEBHOOK_HEAD_REF | cut -d / -f 3)
 
-[[ $image_target ]] || image_target=test
+[[ $image_target ]] || image_target=aws
 
 echo "image_target is $image_target"
-
-case "$image_target" in
-    local)
-        DB_ENDPOINT=${DB_ENDPOINT_LOCAL}
-        ;;
-    *)
-        DB_ENDPOINT=${DB_ENDPOINT_AWS}
-        ;;
-esac
-
-export DB_ENDPOINT
 
 fsu_version="$(git tag | egrep '[^a-zA-Z]')"
 echo "Building image..."
