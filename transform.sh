@@ -22,6 +22,8 @@ patch < fedora-fcfg.toml.patch
 cd ../templates/fedora
 patch < fedora.fcfg.tpl.patch
 patch < filter-drupal.xml.tpl.patch
+cd ../gsearch
+patch < repository.properties.tpl.patch
 cd ../../../cont-init.d
 patch < 01-fedora-config.patch
 cd ../../utility_scripts

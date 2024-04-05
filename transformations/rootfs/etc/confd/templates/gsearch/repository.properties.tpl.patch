@@ -1,0 +1,12 @@
+--- /home/libadmin/Projects/isle-fedora/rootfs/etc/confd/templates/gsearch/repository.properties.tpl	2024-04-04 10:34:28.619358098 -0400
++++ repository.properties.tpl	2024-04-04 15:09:19.317390778 -0400
+@@ -9,7 +9,7 @@
+ fgsrepository.fedoraObjectDir	= /usr/local/fedora/data/objectStore
+ fgsrepository.fedoraVersion		= 3.6
+ 
+-fgsrepository.trustStorePath	= TRUSTSTOREPATH
+-fgsrepository.trustStorePass	= TRUSTSTOREPASS
++fgsrepository.trustStorePath	= /usr/local/fedora/server/truststore
++fgsrepository.trustStorePass	= tomcat
+ 
+ fgsrepository.defaultGetRepositoryInfoResultXslt = copyXml
